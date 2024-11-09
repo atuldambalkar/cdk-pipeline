@@ -11,7 +11,7 @@ import software.constructs.Construct;
 public class ApplicationStage extends Stage {
 
     public ApplicationStage(@NotNull Construct scope, @NotNull String id) {
-        super(scope, id);
+        super(scope, id, null);
     }
 
     public ApplicationStage(@NotNull Construct scope, @NotNull String id, @Nullable StageProps props) {
