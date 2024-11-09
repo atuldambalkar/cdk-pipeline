@@ -34,6 +34,6 @@ public class ApplicationStack extends Stack {
     }
 
     public ApplicationStack(@Nullable Construct scope, @Nullable String id) {
-        super(scope, id);
+        this(scope, id, null);
     }
 }
