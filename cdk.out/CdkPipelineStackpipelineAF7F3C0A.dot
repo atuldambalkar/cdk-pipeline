@@ -1,0 +1,39 @@
+digraph G {
+  # Arrows represent an "unlocks" relationship (opposite of dependency). So chosen
+  # because the layout looks more natural that way.
+  # To represent subgraph dependencies, subgraphs are represented by BEGIN/END nodes.
+  # To render: `dot -Tsvg CdkPipelineStackpipelineAF7F3C0A.dot > graph.svg`, open in a browser.
+  node [shape="box"];
+"BEGIN Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Build.Synth";
+"Source.atuldambalkar/sample-app" -> "Build.Synth";
+"BEGIN Build" -> "Build.Synth";
+"Build.Synth" -> "END Build";
+"BEGIN UpdatePipeline" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END UpdatePipeline" [shape="cds", style="filled", fillcolor="#b7deff"];
+"UpdatePipeline.SelfMutate";
+"Build.Synth" -> "UpdatePipeline.SelfMutate";
+"BEGIN UpdatePipeline" -> "UpdatePipeline.SelfMutate";
+"UpdatePipeline.SelfMutate" -> "END UpdatePipeline";
+"BEGIN test" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END test" [shape="cds", style="filled", fillcolor="#b7deff"];
+"UpdatePipeline.SelfMutate" -> "BEGIN test";
+"BEGIN test.ApplicationStack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END test.ApplicationStack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"test.ApplicationStack.Deploy";
+"test.ApplicationStack.Prepare" -> "test.ApplicationStack.Deploy";
+"test.ApplicationStack.Prepare";
+"Build.Synth" -> "test.ApplicationStack.Prepare";
+"BEGIN test.ApplicationStack" -> "test.ApplicationStack.Prepare";
+"test.ApplicationStack.Deploy" -> "END test.ApplicationStack";
+"test.approval";
+"END test.ApplicationStack" -> "test.approval";
+"BEGIN test" -> "BEGIN test.ApplicationStack";
+"test.approval" -> "END test";
+"BEGIN Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Source.atuldambalkar/sample-app";
+"BEGIN Source" -> "Source.atuldambalkar/sample-app";
+"Source.atuldambalkar/sample-app" -> "END Source";
+}
