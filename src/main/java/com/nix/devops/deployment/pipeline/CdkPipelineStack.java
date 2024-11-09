@@ -24,7 +24,7 @@ public class CdkPipelineStack extends Stack {
         // The code that defines your stack goes here
 
         CodePipelineSource source = CodePipelineSource
-                .connection("atuldambalkar/sample-app", "main",
+                .connection("atuldambalkar/cdk-pipeline", "main",
                         ConnectionSourceOptions.builder()
                 .connectionArn("arn:aws:codeconnections:us-east-1:777403676412:connection/05f36240-0142-4f17-bf72-183eb3d41d83")
                 .build());
