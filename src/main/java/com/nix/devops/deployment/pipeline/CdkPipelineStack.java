@@ -46,7 +46,7 @@ public class CdkPipelineStack extends Stack {
                                 .build())
                         .build()));
 
-        testingStage.addPost(new ManualApprovalStep("approval"));
+//        testingStage.addPost(new ManualApprovalStep("approval"));
 
     }
 }
