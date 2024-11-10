@@ -26,7 +26,7 @@
         "notificationArns": [],
         "assumeRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-deploy-role-777403676412-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-cfn-exec-role-777403676412-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-777403676412-us-east-1/ba4941db1406e41ba23d31a701a5d5f58d9e92c7758dc04f28c1bf170e245e35.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-777403676412-us-east-1/92b9e4dd776a72ce7ab6a9beeab6e9a19637438d291c8609e71ec21e768e34fc.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -72,16 +72,16 @@
             "data": "pipelinePipeline4163A4B1"
           }
         ],
-        "/CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_sample-app/CodePipelineActionRole/Resource": [
+        "/CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_cdk-pipeline/CodePipelineActionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRole38897806"
+            "data": "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRole3A215526"
           }
         ],
-        "/CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_sample-app/CodePipelineActionRole/DefaultPolicy/Resource": [
+        "/CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_cdk-pipeline/CodePipelineActionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRoleDefaultPolicy713C8BC7"
+            "data": "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRoleDefaultPolicy5D878E93"
           }
         ],
         "/CdkPipelineStack/pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/Resource": [
@@ -100,12 +100,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "pipelinePipelineBuildSynthCdkBuildProject4237770A"
-          }
-        ],
-        "/CdkPipelineStack/pipeline/Pipeline/test/approval/CodePipelineActionRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "pipelinePipelinetestapprovalCodePipelineActionRoleCA40EB3C"
           }
         ],
         "/CdkPipelineStack/pipeline/CodeBuildActionRole/Resource": [
@@ -136,6 +130,24 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "pipelineUpdatePipelineSelfMutation14A96D2F"
+          }
+        ],
+        "/CdkPipelineStack/pipeline/Assets/FileRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineAssetsFileRole3D849373"
+          }
+        ],
+        "/CdkPipelineStack/pipeline/Assets/FileRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineAssetsFileRoleDefaultPolicy6EAB09DD"
+          }
+        ],
+        "/CdkPipelineStack/pipeline/Assets/FileAsset1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineAssetsFileAsset1B09D90CC"
           }
         ],
         "/CdkPipelineStack/CDKMetadata/Default": [

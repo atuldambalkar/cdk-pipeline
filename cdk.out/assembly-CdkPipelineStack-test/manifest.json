@@ -19,7 +19,7 @@
         "notificationArns": [],
         "assumeRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-deploy-role-777403676412-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-cfn-exec-role-777403676412-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-777403676412-us-east-1/7772655e85abae585f8c758fdbc78eb2d76b0a669d0e41a2231a8de5bbdb573b.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-777403676412-us-east-1/2ee8cb8fa252c7365e41c4897ee5687a01e594adbd45628cf690803f3cc510b4.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -36,6 +36,66 @@
         "CdkPipelineStacktestApplicationStackC8B1C0A1.assets"
       ],
       "metadata": {
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldFunctionServiceRole8E0BD458"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldFunctionB2AB6E79"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApi9E278160"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApiDeployment65F822B544ad53dea906617094ea39d965f241e6"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApiDeploymentStageprod2E271AE0"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApiEndpointAD496187"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Default/hello/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApihello69E87CE7"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Default/hello/GET/ApiPermission.CdkPipelineStacktestApplicationStackHelloWorldApiC39C0E86.GET..hello": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApihelloGETApiPermissionCdkPipelineStacktestApplicationStackHelloWorldApiC39C0E86GEThello71296C6B"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Default/hello/GET/ApiPermission.Test.CdkPipelineStacktestApplicationStackHelloWorldApiC39C0E86.GET..hello": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApihelloGETApiPermissionTestCdkPipelineStacktestApplicationStackHelloWorldApiC39C0E86GEThello327CB178"
+          }
+        ],
+        "/CdkPipelineStack/test/ApplicationStack/HelloWorldApi/Default/hello/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloWorldApihelloGET9D1EC06B"
+          }
+        ],
         "/CdkPipelineStack/test/ApplicationStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",

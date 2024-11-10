@@ -1,7 +1,21 @@
 {
   "version": "38.0.1",
   "files": {
-    "7772655e85abae585f8c758fdbc78eb2d76b0a669d0e41a2231a8de5bbdb573b": {
+    "fe7e1908d59e783c3f2793117673f2e93c85f0ce91cd99bed0239de3d41e8d3b": {
+      "source": {
+        "path": "../asset.fe7e1908d59e783c3f2793117673f2e93c85f0ce91cd99bed0239de3d41e8d3b",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "777403676412-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-777403676412-us-east-1",
+          "objectKey": "fe7e1908d59e783c3f2793117673f2e93c85f0ce91cd99bed0239de3d41e8d3b.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-file-publishing-role-777403676412-us-east-1"
+        }
+      }
+    },
+    "2ee8cb8fa252c7365e41c4897ee5687a01e594adbd45628cf690803f3cc510b4": {
       "source": {
         "path": "CdkPipelineStacktestApplicationStackC8B1C0A1.template.json",
         "packaging": "file"
@@ -9,7 +23,7 @@
       "destinations": {
         "777403676412-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-777403676412-us-east-1",
-          "objectKey": "7772655e85abae585f8c758fdbc78eb2d76b0a669d0e41a2231a8de5bbdb573b.json",
+          "objectKey": "2ee8cb8fa252c7365e41c4897ee5687a01e594adbd45628cf690803f3cc510b4.json",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-file-publishing-role-777403676412-us-east-1"
         }

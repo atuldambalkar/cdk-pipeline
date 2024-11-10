@@ -193,13 +193,7 @@
         },
         {
          "Fn::GetAtt": [
-          "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRole38897806",
-          "Arn"
-         ]
-        },
-        {
-         "Fn::GetAtt": [
-          "pipelinePipelinetestapprovalCodePipelineActionRoleCA40EB3C",
+          "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRole3A215526",
           "Arn"
          ]
         },
@@ -261,18 +255,18 @@
         },
         "Configuration": {
          "ConnectionArn": "arn:aws:codeconnections:us-east-1:777403676412:connection/05f36240-0142-4f17-bf72-183eb3d41d83",
-         "FullRepositoryId": "atuldambalkar/sample-app",
+         "FullRepositoryId": "atuldambalkar/cdk-pipeline",
          "BranchName": "main"
         },
-        "Name": "atuldambalkar_sample-app",
+        "Name": "atuldambalkar_cdk-pipeline",
         "OutputArtifacts": [
          {
-          "Name": "atuldambalkar_sample_app_Source"
+          "Name": "atuldambalkar_cdk_pipeline_Source"
          }
         ],
         "RoleArn": {
          "Fn::GetAtt": [
-          "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRole38897806",
+          "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRole3A215526",
           "Arn"
          ]
         },
@@ -298,7 +292,7 @@
         },
         "InputArtifacts": [
          {
-          "Name": "atuldambalkar_sample_app_Source"
+          "Name": "atuldambalkar_cdk_pipeline_Source"
          }
         ],
         "Name": "Synth",
@@ -354,6 +348,37 @@
       "Actions": [
        {
         "ActionTypeId": {
+         "Category": "Build",
+         "Owner": "AWS",
+         "Provider": "CodeBuild",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ProjectName": {
+          "Ref": "pipelineAssetsFileAsset1B09D90CC"
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "Synth_Output"
+         }
+        ],
+        "Name": "FileAsset1",
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "pipelineCodeBuildActionRole4D1FDB53",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       }
+      ],
+      "Name": "Assets"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
          "Category": "Deploy",
          "Owner": "AWS",
          "Provider": "CloudFormation",
@@ -383,7 +408,7 @@
           "Name": "Synth_Output"
          }
         ],
-        "Name": "ApplicationStack.Prepare",
+        "Name": "Prepare",
         "RoleArn": {
          "Fn::Join": [
           "",
@@ -410,7 +435,7 @@
          "ActionMode": "CHANGE_SET_EXECUTE",
          "ChangeSetName": "PipelineChange"
         },
-        "Name": "ApplicationStack.Deploy",
+        "Name": "Deploy",
         "RoleArn": {
          "Fn::Join": [
           "",
@@ -424,22 +449,6 @@
          ]
         },
         "RunOrder": 2
-       },
-       {
-        "ActionTypeId": {
-         "Category": "Approval",
-         "Owner": "AWS",
-         "Provider": "Manual",
-         "Version": "1"
-        },
-        "Name": "approval",
-        "RoleArn": {
-         "Fn::GetAtt": [
-          "pipelinePipelinetestapprovalCodePipelineActionRoleCA40EB3C",
-          "Arn"
-         ]
-        },
-        "RunOrder": 3
        }
       ],
       "Name": "test"
@@ -454,7 +463,7 @@
     "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Resource"
    }
   },
-  "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRole38897806": {
+  "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRole3A215526": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -471,10 +480,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_sample-app/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_cdk-pipeline/CodePipelineActionRole/Resource"
    }
   },
-  "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRoleDefaultPolicy713C8BC7": {
+  "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRoleDefaultPolicy5D878E93": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -545,15 +554,15 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRoleDefaultPolicy713C8BC7",
+    "PolicyName": "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRoleDefaultPolicy5D878E93",
     "Roles": [
      {
-      "Ref": "pipelinePipelineSourceatuldambalkarsampleappCodePipelineActionRole38897806"
+      "Ref": "pipelinePipelineSourceatuldambalkarcdkpipelineCodePipelineActionRole3A215526"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_sample-app/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Source/atuldambalkar_cdk-pipeline/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
   "pipelinePipelineBuildSynthCdkBuildProjectRole0C39D18F": {
@@ -720,26 +729,6 @@
     "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/Build/Synth/CdkBuildProject/Resource"
    }
   },
-  "pipelinePipelinetestapprovalCodePipelineActionRoleCA40EB3C": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": "arn:aws:iam::777403676412:root"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "CdkPipelineStack/pipeline/Pipeline/test/approval/CodePipelineActionRole/Resource"
-   }
-  },
   "pipelineCodeBuildActionRole4D1FDB53": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -778,6 +767,12 @@
        ],
        "Effect": "Allow",
        "Resource": [
+        {
+         "Fn::GetAtt": [
+          "pipelineAssetsFileAsset1B09D90CC",
+          "Arn"
+         ]
+        },
         {
          "Fn::GetAtt": [
           "pipelinePipelineBuildSynthCdkBuildProject4237770A",
@@ -984,6 +979,144 @@
    },
    "Metadata": {
     "aws:cdk:path": "CdkPipelineStack/pipeline/UpdatePipeline/SelfMutation/Resource"
+   }
+  },
+  "pipelineAssetsFileRole3D849373": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkPipelineStack/pipeline/Assets/FileRole/Resource"
+   }
+  },
+  "pipelineAssetsFileRoleDefaultPolicy6EAB09DD": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:logs:us-east-1:777403676412:log-group:/aws/codebuild/*"
+      },
+      {
+       "Action": [
+        "codebuild:BatchPutCodeCoverages",
+        "codebuild:BatchPutTestCases",
+        "codebuild:CreateReport",
+        "codebuild:CreateReportGroup",
+        "codebuild:UpdateReport"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:codebuild:us-east-1:777403676412:report-group/*"
+      },
+      {
+       "Action": [
+        "codebuild:BatchGetBuilds",
+        "codebuild:StartBuild",
+        "codebuild:StopBuild"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Sub": "arn:${AWS::Partition}:iam::777403676412:role/cdk-hnb659fds-file-publishing-role-777403676412-us-east-1"
+       }
+      },
+      {
+       "Action": [
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "pipelinePipelineArtifactsBucketC2CD5B5E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "pipelinePipelineArtifactsBucketC2CD5B5E",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "pipelineAssetsFileRoleDefaultPolicy6EAB09DD",
+    "Roles": [
+     {
+      "Ref": "pipelineAssetsFileRole3D849373"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkPipelineStack/pipeline/Assets/FileRole/DefaultPolicy/Resource"
+   }
+  },
+  "pipelineAssetsFileAsset1B09D90CC": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Type": "CODEPIPELINE"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "Description": "Pipeline step CdkPipelineStack/Pipeline/Assets/FileAsset1",
+    "EncryptionKey": "alias/aws/s3",
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_SMALL",
+     "Image": "aws/codebuild/standard:7.0",
+     "ImagePullCredentialsType": "CODEBUILD",
+     "PrivilegedMode": false,
+     "Type": "LINUX_CONTAINER"
+    },
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "pipelineAssetsFileRole3D849373",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@latest\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-CdkPipelineStack-test/CdkPipelineStacktestApplicationStackC8B1C0A1.assets.json\\\" --verbose publish \\\"fe7e1908d59e783c3f2793117673f2e93c85f0ce91cd99bed0239de3d41e8d3b:777403676412-us-east-1\\\"\"\n      ]\n    }\n  }\n}",
+     "Type": "CODEPIPELINE"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkPipelineStack/pipeline/Assets/FileAsset1/Resource"
    }
   },
   "CDKMetadata": {
