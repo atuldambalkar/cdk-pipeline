@@ -2,6 +2,9 @@
 CDK Pipeline Project
 
 ## Steps
+
+- aws configure
+
 ### Option I - AWS Code Pipelone
 - Create AWS CodePipeline GitHub Connection from Settings menu on AWS Console.
 - ARN for this Connection will be used the in CDK Code during deployment.
